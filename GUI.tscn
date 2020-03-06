@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://AddBaton.cs" type="Script" id=1]
+[ext_resource path="res://Record.cs" type="Script" id=2]
+[ext_resource path="res://sprites/baton.png" type="Texture" id=3]
+[ext_resource path="res://AddBeacon.cs" type="Script" id=4]
+[ext_resource path="res://GUI.tres" type="Theme" id=5]
+
+[node name="Control" type="Control"]
+margin_right = 574.0
+margin_bottom = 192.0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+theme = ExtResource( 5 )
+split_offset = -210
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HSplitContainer"]
+margin_right = 268.0
+margin_bottom = 192.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sliders" type="VBoxContainer" parent="Panel/HSplitContainer/VBoxContainer"]
+margin_top = 166.0
+margin_right = 268.0
+margin_bottom = 166.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/HSplitContainer/VBoxContainer"]
+margin_top = 170.0
+margin_right = 268.0
+margin_bottom = 192.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AddBaton" type="Button" parent="Panel/HSplitContainer/VBoxContainer/Buttons"]
+margin_right = 78.0
+margin_bottom = 22.0
+text = "Add Baton"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+SliderContainerPath = NodePath("../../Sliders")
+
+[node name="Record" type="Button" parent="Panel/HSplitContainer/VBoxContainer/Buttons"]
+margin_left = 82.0
+margin_right = 138.0
+margin_bottom = 22.0
+text = "Record"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+RecordIconPath = NodePath("../../../VBoxContainer/Buttons/Sprite")
+
+[node name="Sprite" type="Sprite" parent="Panel/HSplitContainer/VBoxContainer/Buttons"]
+show_behind_parent = true
+position = Vector2( 151.945, 9.61346 )
+scale = Vector2( 0.108392, 0.108392 )
+texture = ExtResource( 3 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HSplitContainer"]
+margin_left = 276.0
+margin_right = 574.0
+margin_bottom = 192.0
+grow_vertical = 0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sliders" type="VBoxContainer" parent="Panel/HSplitContainer/VBoxContainer2"]
+margin_top = 166.0
+margin_right = 298.0
+margin_bottom = 166.0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/HSplitContainer/VBoxContainer2"]
+margin_top = 170.0
+margin_right = 298.0
+margin_bottom = 192.0
+
+[node name="AddBeacon" type="Button" parent="Panel/HSplitContainer/VBoxContainer2/Buttons"]
+margin_right = 88.0
+margin_bottom = 22.0
+text = "Add Beacon"
+script = ExtResource( 4 )
+SliderBoxPath = NodePath("../../Sliders")

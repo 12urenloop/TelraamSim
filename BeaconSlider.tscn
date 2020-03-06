@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BeaconSlider.cs" type="Script" id=2]
+[ext_resource path="res://BeaconControl.cs" type="Script" id=3]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_right = 272.0
+margin_bottom = 20.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+BeaconSliderPath = NodePath("HSlider")
+BeaconLabelPath = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+margin_top = 3.0
+margin_right = 59.0
+margin_bottom = 17.0
+text = "Beacon 1"
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 63.0
+margin_right = 213.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 0 )
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+script = ExtResource( 2 )
+
+[node name="DeleteBeacon" type="Button" parent="."]
+margin_left = 217.0
+margin_right = 272.0
+margin_bottom = 20.0
+text = "Delete"
+[connection signal="pressed" from="DeleteBeacon" to="." method="_OnDelete"]

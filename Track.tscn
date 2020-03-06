@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/track.png" type="Texture" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 313.124, 251.746, 0, 0, 0, 0, -320, 256, 2.19775, 248.558, -2.19775, -248.558, -512, 0, 0, 0, 0, 0, -320, -256, 0, 0, 0, 0, 313.124, -256.022, 0.131478, -243.945, -0.131478, 243.945, 503.537, -2.13785, 0, 0, 0, 0, 313.124, 251.746 )
+}
+
+[node name="Track" type="Path2D"]
+position = Vector2( 4.26672, 2.15567 )
+scale = Vector2( 1.00833, 1.00833 )
+curve = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -12.1654, -10.0718 )
+scale = Vector2( 1.80436, 1.72772 )
+texture = ExtResource( 1 )

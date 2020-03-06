@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BatonControl.cs" type="Script" id=1]
+[ext_resource path="res://PauseBaton.cs" type="Script" id=2]
+
+[node name="BatonControl" type="HBoxContainer"]
+margin_right = 256.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+LabelPath = NodePath("Label")
+SliderPath = NodePath("HSlider")
+
+[node name="Label" type="Label" parent="."]
+margin_top = 3.0
+margin_right = 45.0
+margin_bottom = 17.0
+text = "Baton1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 49.0
+margin_right = 143.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 0 )
+size_flags_horizontal = 3
+min_value = -10000.0
+max_value = 10000.0
+step = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseBaton" type="Button" parent="."]
+margin_left = 147.0
+margin_right = 197.0
+margin_bottom = 20.0
+text = "Pause"
+script = ExtResource( 2 )
+SliderPath = NodePath("../HSlider")
+
+[node name="DeleteBaton" type="Button" parent="."]
+margin_left = 201.0
+margin_right = 256.0
+margin_bottom = 20.0
+text = "Delete"
+[connection signal="pressed" from="DeleteBaton" to="." method="_OnDelete"]
