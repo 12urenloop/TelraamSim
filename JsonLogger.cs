@@ -35,7 +35,7 @@ namespace Telraam_sim
         {
             Recording = false;
             logFile = new File();
-            var fn = $"res://logfile_{DateTime.Now.ToString("yy_MM_dd:hh_mm_ss")}.json";
+            var fn = $"res://logfile_{DateTime.Now.ToString("yy_MM_dd:hh_mm_ss")}.log.json";
             GD.Print(fn);
             logFile.Open(fn, File.ModeFlags.WriteRead);
             logFile.StoreString(JsonConvert.SerializeObject(detections));
@@ -44,7 +44,7 @@ namespace Telraam_sim
 
 
             var lapLogFile = new File();
-            fn = $"res://laps_logfile_{DateTime.Now.ToString("yy_MM_dd:hh_mm_ss")}.json";
+            fn = $"res://laps_logfile_{DateTime.Now.ToString("yy_MM_dd:hh_mm_ss")}.log.json";
             GD.Print(fn);
             lapLogFile.Open(fn, File.ModeFlags.WriteRead);
             lapLogFile.StoreString(JsonConvert.SerializeObject(laps));

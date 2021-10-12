@@ -31,8 +31,8 @@ namespace Telraam_sim
 		{
 			area2D = (Area2D) FindNode("Area2D");
 			label = GetNode<Label>(LabelPath);
-			tcpClient = new TcpClient();
-			tcpClient.Connect("localhost", 4564);
+			// tcpClient = new TcpClient();
+			// tcpClient.Connect("localhost", 4564);
 		}
 
 
@@ -50,7 +50,7 @@ namespace Telraam_sim
 					var detection = new Detection(batonId, BeaconId, (int) (time * 1000));
 					JsonLogger.GetInstance().LogDetection(detection);
 					var buf = $"{beaconId},{(int)(time*1000)},{batonId},IGNORE\n".ToUTF8();
-					tcpClient.GetStream().Write(buf, 0, buf.Length);
+					// tcpClient.GetStream().Write(buf, 0, buf.Length);
 				}
 			}
 		}
