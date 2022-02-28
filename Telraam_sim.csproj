@@ -30,11 +30,13 @@
     <Compile Include="Detection.cs" />
     <Compile Include="Finishline.cs" />
     <Compile Include="JsonLogger.cs" />
+    <Compile Include="LiveStreamer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PauseBaton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record.cs" />
     <Compile Include="BatonControl.cs" />
+    <Compile Include="StreamButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

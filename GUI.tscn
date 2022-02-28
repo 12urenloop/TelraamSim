@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://AddBaton.cs" type="Script" id=1]
 [ext_resource path="res://Record.cs" type="Script" id=2]
 [ext_resource path="res://sprites/baton.png" type="Texture" id=3]
 [ext_resource path="res://AddBeacon.cs" type="Script" id=4]
 [ext_resource path="res://GUI.tres" type="Theme" id=5]
+[ext_resource path="res://StreamButton.cs" type="Script" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
@@ -114,6 +115,7 @@ margin_bottom = 22.0
 text = "Add Beacon"
 script = ExtResource( 4 )
 SliderBoxPath = NodePath("../../BeaconList/Sliders")
+LogPanelPath = NodePath("../../../../Logs/LogsScroll/Logs")
 
 [node name="Logs" type="HBoxContainer" parent="Panel/VSplitContainer"]
 margin_top = 42.0
@@ -155,6 +157,7 @@ margin_top = 26.0
 margin_right = 103.0
 margin_bottom = 60.0
 text = "Stream"
+script = ExtResource( 6 )
 
 [node name="LogsScroll" type="ScrollContainer" parent="Panel/VSplitContainer/Logs"]
 margin_left = 107.0
@@ -165,64 +168,3 @@ size_flags_vertical = 3
 custom_styles/bg = SubResource( 1 )
 
 [node name="Logs" type="VBoxContainer" parent="Panel/VSplitContainer/Logs/LogsScroll"]
-margin_right = 438.0
-margin_bottom = 256.0
-
-[node name="Label" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_right = 438.0
-margin_bottom = 22.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label2" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 26.0
-margin_right = 438.0
-margin_bottom = 48.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label3" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 52.0
-margin_right = 438.0
-margin_bottom = 74.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label4" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 78.0
-margin_right = 438.0
-margin_bottom = 100.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label5" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 104.0
-margin_right = 438.0
-margin_bottom = 126.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label6" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 130.0
-margin_right = 438.0
-margin_bottom = 152.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label7" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 156.0
-margin_right = 438.0
-margin_bottom = 178.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label8" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 182.0
-margin_right = 438.0
-margin_bottom = 204.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label9" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 208.0
-margin_right = 438.0
-margin_bottom = 230.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
-
-[node name="Label10" type="Label" parent="Panel/VSplitContainer/Logs/LogsScroll/Logs"]
-margin_top = 234.0
-margin_right = 438.0
-margin_bottom = 256.0
-text = "[2022-02-28 21:04:12] Detection xxxx: Runner x detected at point y"
