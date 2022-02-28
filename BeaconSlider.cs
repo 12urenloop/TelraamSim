@@ -4,10 +4,10 @@ using Telraam_sim;
 
 public class BeaconSlider : HSlider
 {
-	private Beacon beacon;
+    private Beacon beacon;
 
-	public override void _Ready()
-	{
-		beacon = GetOwner<BeaconControl>().Beacon;
-	}
+    public override void _Ready()
+    {
+        beacon = GetOwner<BeaconControl>().Beacon;
+    }
 }
