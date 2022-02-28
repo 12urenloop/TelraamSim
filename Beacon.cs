@@ -11,7 +11,12 @@ namespace Telraam_sim
 		private Area2D area2D;
 		private float time = 0;
 		private TcpClient tcpClient;
-
+		
+		private Random rand = new Random();
+		
+		// The chance that the beacon receives the transmission of a passing baton
+		[Export()]
+		public double reliability;
 		[Export()]
 		public int BeaconId
 		{
@@ -31,8 +36,11 @@ namespace Telraam_sim
 		{
 			area2D = (Area2D) FindNode("Area2D");
 			label = GetNode<Label>(LabelPath);
-			// tcpClient = new TcpClient();
-			// tcpClient.Connect("localhost", 4564);
+			tcpClient = new TcpClient();
+			//tcpClient.Connect("localhost", 4564);
+			
+			reliability = rand.NextDouble();
+			UnitOffset = (float) rand.NextDouble();
 		}
 
 

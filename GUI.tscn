@@ -44,10 +44,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sliders" type="VBoxContainer" parent="Panel/HSplitContainer/VBoxContainer"]
-margin_top = 166.0
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HSplitContainer/VBoxContainer"]
 margin_right = 268.0
 margin_bottom = 166.0
+size_flags_vertical = 3
+
+[node name="Sliders" type="VBoxContainer" parent="Panel/HSplitContainer/VBoxContainer/ScrollContainer"]
+margin_right = 268.0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -67,7 +70,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-SliderContainerPath = NodePath("../../Sliders")
+SliderContainerPath = NodePath("../../ScrollContainer/Sliders")
 
 [node name="Record" type="Button" parent="Panel/HSplitContainer/VBoxContainer/Buttons"]
 margin_left = 82.0
@@ -96,10 +99,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sliders" type="VBoxContainer" parent="Panel/HSplitContainer/VBoxContainer2"]
-margin_top = 166.0
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HSplitContainer/VBoxContainer2"]
 margin_right = 298.0
 margin_bottom = 166.0
+size_flags_horizontal = 11
+size_flags_vertical = 3
+
+[node name="Sliders" type="VBoxContainer" parent="Panel/HSplitContainer/VBoxContainer2/ScrollContainer"]
 grow_vertical = 0
 size_flags_vertical = 8
 
@@ -113,4 +119,4 @@ margin_right = 88.0
 margin_bottom = 22.0
 text = "Add Beacon"
 script = ExtResource( 4 )
-SliderBoxPath = NodePath("../../Sliders")
+SliderBoxPath = NodePath("../../ScrollContainer/Sliders")
