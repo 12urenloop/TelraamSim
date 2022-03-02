@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://AddBaton.cs" type="Script" id=1]
 [ext_resource path="res://Record.cs" type="Script" id=2]
 [ext_resource path="res://sprites/baton.png" type="Texture" id=3]
 [ext_resource path="res://AddBeacon.cs" type="Script" id=4]
 [ext_resource path="res://GUI.tres" type="Theme" id=5]
+[ext_resource path="res://StreamButton.cs" type="Script" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
 
 [node name="Control" type="Control"]
 margin_right = 574.0
@@ -23,9 +27,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Panel"]
+[node name="VSplitContainer" type="VSplitContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+split_offset = 729
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel/VSplitContainer"]
+margin_right = 574.0
+margin_bottom = 34.0
 grow_vertical = 0
 theme = ExtResource( 5 )
 split_offset = -210
@@ -33,9 +45,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HSplitContainer"]
+[node name="BatonGroup" type="VBoxContainer" parent="Panel/VSplitContainer/HSplitContainer"]
 margin_right = 268.0
-margin_bottom = 192.0
+margin_bottom = 34.0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -44,22 +56,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sliders" type="VBoxContainer" parent="Panel/HSplitContainer/VBoxContainer"]
-margin_top = 166.0
+[node name="BatonList" type="ScrollContainer" parent="Panel/VSplitContainer/HSplitContainer/BatonGroup"]
 margin_right = 268.0
-margin_bottom = 166.0
+margin_bottom = 8.0
+size_flags_vertical = 3
+
+[node name="Sliders" type="VBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/BatonGroup/BatonList"]
+margin_right = 268.0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
-[node name="Buttons" type="HBoxContainer" parent="Panel/HSplitContainer/VBoxContainer"]
-margin_top = 170.0
+[node name="Buttons" type="HBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/BatonGroup"]
+margin_top = 12.0
 margin_right = 268.0
-margin_bottom = 192.0
+margin_bottom = 34.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="AddBaton" type="Button" parent="Panel/HSplitContainer/VBoxContainer/Buttons"]
+[node name="AddBaton" type="Button" parent="Panel/VSplitContainer/HSplitContainer/BatonGroup/Buttons"]
 margin_right = 78.0
 margin_bottom = 22.0
 text = "Add Baton"
@@ -67,50 +82,89 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-SliderContainerPath = NodePath("../../Sliders")
+SliderContainerPath = NodePath("../../BatonList/Sliders")
 
-[node name="Record" type="Button" parent="Panel/HSplitContainer/VBoxContainer/Buttons"]
-margin_left = 82.0
-margin_right = 138.0
-margin_bottom = 22.0
-text = "Record"
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-RecordIconPath = NodePath("../../../VBoxContainer/Buttons/Sprite")
-
-[node name="Sprite" type="Sprite" parent="Panel/HSplitContainer/VBoxContainer/Buttons"]
-show_behind_parent = true
-position = Vector2( 151.945, 9.61346 )
-scale = Vector2( 0.108392, 0.108392 )
-texture = ExtResource( 3 )
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HSplitContainer"]
+[node name="BeaconGroup" type="VBoxContainer" parent="Panel/VSplitContainer/HSplitContainer"]
 margin_left = 276.0
 margin_right = 574.0
-margin_bottom = 192.0
+margin_bottom = 34.0
 grow_vertical = 0
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sliders" type="VBoxContainer" parent="Panel/HSplitContainer/VBoxContainer2"]
-margin_top = 166.0
+[node name="BeaconList" type="ScrollContainer" parent="Panel/VSplitContainer/HSplitContainer/BeaconGroup"]
 margin_right = 298.0
-margin_bottom = 166.0
+margin_bottom = 8.0
+size_flags_horizontal = 11
+size_flags_vertical = 3
+
+[node name="Sliders" type="VBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/BeaconGroup/BeaconList"]
 grow_vertical = 0
 size_flags_vertical = 8
 
-[node name="Buttons" type="HBoxContainer" parent="Panel/HSplitContainer/VBoxContainer2"]
-margin_top = 170.0
+[node name="Buttons" type="HBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/BeaconGroup"]
+margin_top = 12.0
 margin_right = 298.0
-margin_bottom = 192.0
+margin_bottom = 34.0
 
-[node name="AddBeacon" type="Button" parent="Panel/HSplitContainer/VBoxContainer2/Buttons"]
+[node name="AddBeacon" type="Button" parent="Panel/VSplitContainer/HSplitContainer/BeaconGroup/Buttons"]
 margin_right = 88.0
 margin_bottom = 22.0
 text = "Add Beacon"
 script = ExtResource( 4 )
-SliderBoxPath = NodePath("../../Sliders")
+SliderBoxPath = NodePath("../../BeaconList/Sliders")
+LogPanelPath = NodePath("../../../../Logs/LogsScroll/Logs")
+
+[node name="Logs" type="HBoxContainer" parent="Panel/VSplitContainer"]
+margin_top = 42.0
+margin_right = 574.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="Controls" type="VBoxContainer" parent="Panel/VSplitContainer/Logs"]
+margin_right = 103.0
+margin_bottom = 150.0
+
+[node name="RecordGroup" type="HBoxContainer" parent="Panel/VSplitContainer/Logs/Controls"]
+margin_right = 103.0
+margin_bottom = 22.0
+
+[node name="Record" type="Button" parent="Panel/VSplitContainer/Logs/Controls/RecordGroup"]
+margin_right = 56.0
+margin_bottom = 22.0
+text = "Record"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+RecordIconPath = NodePath("../RecordIcon")
+
+[node name="RecordIcon" type="TextureRect" parent="Panel/VSplitContainer/Logs/Controls/RecordGroup"]
+margin_left = 60.0
+margin_right = 80.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 20, 20 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="StreamButton" type="CheckButton" parent="Panel/VSplitContainer/Logs/Controls"]
+margin_top = 26.0
+margin_right = 103.0
+margin_bottom = 60.0
+text = "Stream"
+script = ExtResource( 6 )
+
+[node name="LogsScroll" type="ScrollContainer" parent="Panel/VSplitContainer/Logs"]
+margin_left = 107.0
+margin_right = 574.0
+margin_bottom = 150.0
+size_flags_horizontal = 11
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+
+[node name="Logs" type="VBoxContainer" parent="Panel/VSplitContainer/Logs/LogsScroll"]

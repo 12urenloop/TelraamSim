@@ -7,7 +7,7 @@
     <AssemblyName>Telraam_sim</AssemblyName>
     <GodotProjectGeneratorVersion>1.0.7333.4679</GodotProjectGeneratorVersion>
     <TargetFramework>net472</TargetFramework>
-    <!--The following properties were overriden during migration to prevent errors.
+    <!--The following properties were overridden during migration to prevent errors.
     Enabling them may require other manual changes to the project and its files.-->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -30,11 +30,13 @@
     <Compile Include="Detection.cs" />
     <Compile Include="Finishline.cs" />
     <Compile Include="JsonLogger.cs" />
+    <Compile Include="LiveStreamer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PauseBaton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record.cs" />
     <Compile Include="BatonControl.cs" />
+    <Compile Include="StreamButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
